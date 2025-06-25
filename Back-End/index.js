@@ -6,6 +6,7 @@ import axios from "axios";
 import cors from "cors"
 import path from 'path';
 import { fileURLToPath } from 'url';
+import "../Front-End/dist/index.html"
 
 import cookieParser from "cookie-parser";
 import userRoutes from "./routes/userRoutes.js";
@@ -19,7 +20,7 @@ const __dirname = path.dirname(__filename);
 app.use(express.json());
 app.use(express.static(path.join(__dirname, '../Front-End/dist')));
 app.get('/*any', (req, res) => {
-  res.sendFile(path.join(__dirname, '../Front-End/dist', 'index.html'));
+  res.sendFile(path.join(__dirname, '../Front-End/dist/', 'index.html'));
 });
 
 
@@ -51,6 +52,3 @@ app.get("/lc/:lcUsername",async (req,res)=>{
     }
 })
 mongoose.connect("mongodb+srv://vmusix01:DJGDlcor1PfyFmFA@devpro.kv2bcjm.mongodb.net/?retryWrites=true&w=majority&appName=devpro");
-app.listen(3000,()=>{
-    console.log("Running successfully");
-})
