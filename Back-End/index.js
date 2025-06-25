@@ -9,6 +9,10 @@ import cors from "cors";
 import path from "path";
 import { fileURLToPath } from "url";
 import cookieParser from "cookie-parser";
+import dotenv from "dotenv";
+dotenv.config();
+
+const PORT = process.env.PORT || 3000;
 
 const app = express();
 
@@ -87,6 +91,6 @@ mongoose.connect("mongodb+srv://vmusix01:DJGDlcor1PfyFmFA@devpro.kv2bcjm.mongodb
   .catch((err) => console.error("❌ MongoDB connection error:", err));
 
 // Start Server
-app.listen(3000, () => {
+app.listen(PORT, () => {
   console.log("🚀 Server running on port 3000...");
 });
