@@ -51,8 +51,8 @@ router.post("/login",async (req,res)=>{
         const token = jwt.sign({id:user._id,username:username},process.env.secretKey,{expiresIn:'1d'});
         res.cookie('token',token,{
             httpOnly:true,
-            sameSite:'Strict',
-            secure:false,
+            sameSite:'None',
+            secure:true,
             maxAge:24*60*60*1000
         });
 
@@ -69,6 +69,10 @@ router.post("/logout",(req,res)=>{
     return res.status(201).json({message:"Logged out successfully"});
 
 })
+
+
+
+
 
 router.get("/verify",(req,res)=>{
     const token = req.cookies.token;
