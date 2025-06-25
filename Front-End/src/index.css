@@ -1,0 +1,27 @@
+@import "tailwindcss";
+@plugin "flowbite-react/plugin/tailwindcss";
+@source "../.flowbite-react/class-list.json";
+
+
+
+/* CalendarHeatmap color fills */
+.color-empty {
+  fill: #2d3748; /* dark grey background for empty */
+}
+.color-scale-1 {
+  fill: #9AE6B4; /* light green */
+}
+.color-scale-2 {
+  fill: #68D391;
+}
+.color-scale-3 {
+  fill: #48BB78;
+}
+.color-scale-4 {
+  fill: #2F855A; /* darkest green */
+}
+/* Optionally adjust stroke for the squares */
+.react-calendar-heatmap .react-calendar-heatmap-day {
+  stroke: #1a202c; /* dark border */
+  stroke-width: 1px;
+}

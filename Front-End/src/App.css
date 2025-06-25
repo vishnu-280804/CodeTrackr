@@ -1,0 +1,236 @@
+@import "tailwindcss";
+@plugin "flowbite-react/plugin/tailwindcss";
+@source "../.flowbite-react/class-list.json";
+
+
+
+/* CalendarHeatmap color fills */
+.color-empty {
+  fill: #2d3748; /* dark grey background for empty */
+}
+.color-scale-1 {
+  fill: #9AE6B4; /* light green */
+}
+.color-scale-2 {
+  fill: #68D391;
+}
+.color-scale-3 {
+  fill: #48BB78;
+}
+.color-scale-4 {
+  fill: #2F855A; /* darkest green */
+}
+/* Optionally adjust stroke for the squares */
+.react-calendar-heatmap .react-calendar-heatmap-day {
+  stroke: #1a202c; /* dark border */
+  stroke-width: 1px;
+}
+
+:root {
+  /* Base sizes */
+  --btn-padding-y: 0.75rem;       /* 12px */
+  --btn-padding-x: 1.5rem;        /* 24px */
+  --btn-font-size: 1rem;          /* 16px */
+  --btn-radius: 0.5rem;           /* 8px */
+  --btn-transition: 0.2s ease-out;
+
+  /* Primary gradient colors */
+  --btn-primary-start: #4f46e5;   /* Indigo-600 */
+  --btn-primary-end:   #3b82f6;   /* Blue-500 */
+  --btn-primary-text:  #ffffff;
+
+  /* Secondary / accent gradient colors */
+  --btn-accent-start: #ec4899;    /* Pink-500 */
+  --btn-accent-end:   #f97316;    /* Orange-500 */
+  --btn-accent-text:  #ffffff;
+
+  /* Shadows */
+  --btn-shadow:         0 4px 6px rgba(0, 0, 0, 0.1);
+  --btn-shadow-hover:   0 8px 16px rgba(0, 0, 0, 0.15);
+  --btn-shadow-active:  inset 0 2px 4px rgba(0, 0, 0, 0.2);
+
+  /* Focus ring color (semi-transparent) */
+  --btn-focus-ring: rgba(59, 130, 246, 0.5); /* e.g., blue-500 @50% */
+}
+
+/* Dark mode example: if you toggle a .dark class on <html> or <body>, override vars */
+.dark {
+  /* You might invert or adjust colors here */
+  --btn-primary-start: #2563eb;   /* Blue-600 */
+  --btn-primary-end:   #1d4ed8;   /* Blue-700 */
+  --btn-accent-start:  #db2777;   /* Pink-600 */
+  --btn-accent-end:    #d97706;   /* Orange-600 */
+  --btn-focus-ring:    rgba(96, 165, 250, 0.5); /* lighter blue in dark mode */
+}
+
+
+.btn {
+  display: inline-block;
+  padding: var(--btn-padding-y) var(--btn-padding-x);
+  font-size: var(--btn-font-size);
+  border: none;
+  border-radius: var(--btn-radius);
+  cursor: pointer;
+  position: relative;
+  overflow: hidden; /* for any ripple/overlay effect */
+  transition: transform var(--btn-transition), box-shadow var(--btn-transition),
+              background-color var(--btn-transition), color var(--btn-transition);
+  user-select: none;
+  /* Prevent inner text selection while double-clicking */
+}
+
+/* Accessible focus style */
+.btn:focus {
+  outline: none;
+  box-shadow:
+    0 0 0 3px var(--btn-focus-ring),
+    var(--btn-shadow);
+}
+
+/* Disabled state */
+.btn:disabled,
+.btn.disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none !important;
+  box-shadow: none !important;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--btn-primary-start), var(--btn-primary-end));
+  color: var(--btn-primary-text);
+  box-shadow: var(--btn-shadow);
+}
+
+/* Hover: lift up */
+.btn-primary:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: var(--btn-shadow-hover);
+}
+
+/* Active (pressed): inset shadow and slight push-down */
+.btn-primary:active:not(:disabled) {
+  transform: translateY(1px);
+  box-shadow: var(--btn-shadow-active);
+}
+
+/* Optional: subtle shine overlay on hover using pseudo-element */
+.btn-primary::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle at center, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0) 60%);
+  transform: scale(0);
+  transition: transform 0.5s ease-out;
+  pointer-events: none;
+}
+.btn-primary:hover::before {
+  transform: scale(1);
+}
+.btn-primary:active::before {
+  transition: none;
+  transform: scale(0.5);
+}
+
+.btn-accent {
+  background: linear-gradient(135deg, var(--btn-accent-start), var(--btn-accent-end));
+  color: var(--btn-accent-text);
+  box-shadow: var(--btn-shadow);
+}
+
+.btn-accent:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: var(--btn-shadow-hover);
+}
+
+.btn-accent:active:not(:disabled) {
+  transform: translateY(1px);
+  box-shadow: var(--btn-shadow-active);
+}
+
+/* Optional shine */
+.btn-accent::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle at center, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0) 60%);
+  transform: scale(0);
+  transition: transform 0.5s ease-out;
+  pointer-events: none;
+}
+.btn-accent:hover::before {
+  transform: scale(1);
+}
+.btn-accent:active::before {
+  transition: none;
+  transform: scale(0.5);
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--btn-primary-start);
+  border: 2px solid var(--btn-primary-start);
+  box-shadow: none;
+}
+
+/* Hover: fill with primary gradient lightly or semi-transparent overlay */
+.btn-outline:hover:not(:disabled) {
+  background: var(--btn-primary-start);
+  background: linear-gradient(135deg, var(--btn-primary-start) 0%, var(--btn-primary-end) 100%);
+  color: var(--btn-primary-text);
+  box-shadow: var(--btn-shadow);
+  transform: translateY(-2px);
+}
+
+/* Active */
+.btn-outline:active:not(:disabled) {
+  transform: translateY(1px);
+  box-shadow: var(--btn-shadow-active);
+}
+
+/* Focus */
+.btn-outline:focus {
+  /* inherit .btn:focus styles: box-shadow with focus ring + shadow */
+}
+
+/* If you want an accent outline variant: */
+.btn-outline-accent {
+  background: transparent;
+  color: var(--btn-accent-start);
+  border: 2px solid var(--btn-accent-start);
+}
+.btn-outline-accent:hover:not(:disabled) {
+  background: linear-gradient(135deg, var(--btn-accent-start), var(--btn-accent-end));
+  color: var(--btn-accent-text);
+  box-shadow: var(--btn-shadow);
+  transform: translateY(-2px);
+}
+.btn-outline-accent:active:not(:disabled) {
+  transform: translateY(1px);
+  box-shadow: var(--btn-shadow-active);
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--btn-primary-start);
+  border: none;
+  box-shadow: none;
+}
+
+/* Hover: subtle background overlay */
+.btn-ghost:hover:not(:disabled) {
+  background: rgba(255, 255, 255, 0.1);
+  /* Or using primary color with low alpha */
+  /* background: rgba(79, 70, 229, 0.1); */
+}
+
+/* Active */
+.btn-ghost:active:not(:disabled) {
+  background: rgba(255, 255, 255, 0.2);
+}
