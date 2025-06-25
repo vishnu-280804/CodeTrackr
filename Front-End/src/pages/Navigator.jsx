@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthProvider.jsx';
+import.meta.env.VITE_API_URL
+
 import logo from '../assets/logo.png';
 
 const Navigator = () => {

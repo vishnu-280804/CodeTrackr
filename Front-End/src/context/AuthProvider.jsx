@@ -1,5 +1,7 @@
 import { createContext,useContext,useState,useEffect } from "react";
 import axios from "axios";
+import.meta.env.VITE_API_URL
+
 const AuthContext = createContext();
 export const AuthProvider = ({children}) => {
   const [loggedin,setLoggedin] = useState(false);
@@ -7,7 +9,7 @@ export const AuthProvider = ({children}) => {
 useEffect(() => {
   const checkLogin = async()=>{
     try {
-        const res = await axios.get("http://localhost:3000/api/protect-route",{withCredentials:true});
+        const res = await axios.get(`${import.meta.env.VITE_API_URL}/api/protect-route`,{withCredentials:true});
 
         setLoggedin(true);
     } catch (error) {

@@ -3,7 +3,9 @@ import { BrowserRouter as Router,Routes,Route } from 'react-router-dom';
 import Home from './components/Home.jsx';
 import FallBack from './pages/FallBack.jsx';
 import { motion, useScroll } from "framer-motion";
-import { useRef } from "react";
+import { useRef } from "react"
+import.meta.env.VITE_API_URL
+;
 
 import Signup from './components/Signup.jsx';
 import Navigator from './pages/Navigator.jsx';

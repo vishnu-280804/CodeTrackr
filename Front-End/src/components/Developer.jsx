@@ -6,6 +6,8 @@ import { subDays } from 'date-fns';
 import axios from 'axios';
 import LeetCode from '../pages/LeetCode.jsx';
 import CodeForces from '../pages/CodeForces.jsx';
+import.meta.env.VITE_API_URL
+
 import Resume from '../pages/Resume.jsx';
 
 const leetContext = createContext();
@@ -22,7 +24,7 @@ const Developer = () => {
   useEffect(() => {
     const fetchUsername = async () => {
       try {
-        const res = await axios.get(`http://localhost:3000/users/platforms/${username}`, {
+        const res = await axios.get(`${import.meta.env.VITE_API_URL}/users/platforms/${username}`, {
           withCredentials: true,
         });
         const { github, leetcode } = res.data;
@@ -58,7 +60,7 @@ const Developer = () => {
       try {
         const res = await axios.get(
           // Note: ensure your CORS proxy or server supports this; consider your own backend endpoint for reliability
-          `http://localhost:3000/l/leetcode/${leetcodeUsername}`
+          `${import.meta.env.VITE_API_URL}/l/leetcode/${leetcodeUsername}`
         );
         const problems = res.data.submitStats?.acSubmissionNum || [];
         const updated = { Easy: 0, Medium: 0, Hard: 0 };

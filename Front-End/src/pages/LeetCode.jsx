@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useLeet } from '../components/Developer.jsx';
+import.meta.env.VITE_API_URL
+
 import ProgressBar from '@ramonak/react-progress-bar';
 
 const LeetCode = () => {

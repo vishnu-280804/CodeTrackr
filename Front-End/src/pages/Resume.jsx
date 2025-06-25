@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import.meta.env.VITE_API_URL;
+
 
 const Resume = () => {
   const [review, setReview] = useState('');
@@ -16,7 +18,7 @@ const Resume = () => {
       setLoading(true);
       setReview('');
       const res = await axios.post(
-        'http://localhost:3000/review/pdf',
+        '${import.meta.env.VITE_API_URL}/review/pdf',
         formData,
         {
           headers: { 'Content-Type': 'multipart/form-data' },

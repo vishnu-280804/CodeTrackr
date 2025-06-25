@@ -13,6 +13,7 @@
   "dependencies": {
     "@ramonak/react-progress-bar": "^5.4.0",
     "@tailwindcss/vite": "^4.1.10",
+    "axios": "^1.10.0",
     "date-fns": "^4.1.0",
     "flowbite-react": "^0.11.8",
     "motion": "^12.18.1",

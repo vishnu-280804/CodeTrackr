@@ -3,6 +3,8 @@ import axios from "axios";
 import { useAuth } from '../context/AuthProvider.jsx';
 import { useNavigate } from 'react-router-dom';
 import toast from 'react-hot-toast';
+import.meta.env.VITE_API_URL
+
 
 const Login = () => {
     const {setLoggedin} = useAuth();
@@ -13,7 +15,7 @@ const Login = () => {
     async function handleSubmit(e){
         e.preventDefault();
         try {
-            const res = await axios.post("http://localhost:3000/api/login",{
+            const res = await axios.post(`${import.meta.env.VITE_API_URL}/api/login`,{
                 username,password
             },{withCredentials:true});
             console.log(res);

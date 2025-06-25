@@ -2,6 +2,8 @@ import React,{useState} from 'react'
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import toast from 'react-hot-toast';
+import.meta.env.VITE_API_URL
+
 
 const Signup = () => {
     const navigate = useNavigate();
@@ -29,7 +31,7 @@ const Signup = () => {
     async function handleSubmit(e){
         e.preventDefault();
         try {
-           const res = await axios.post("http://localhost:3000/api/signup",allValues,{withCredentials:true});
+           const res = await axios.post(`${import.meta.env.VITE_API_URL}/api/signup`,allValues,{withCredentials:true});
            console.log(res);
            toast.success('Registered successful! 👋');
            navigate("/login");

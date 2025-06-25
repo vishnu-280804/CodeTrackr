@@ -2,6 +2,8 @@ import React from 'react';
 import { motion } from 'motion/react';
 import { Button } from 'flowbite-react';
 import { useNavigate } from 'react-router-dom';
+import.meta.env.VITE_API_URL
+
 
 const Home = () => {
   const navigate = useNavigate();

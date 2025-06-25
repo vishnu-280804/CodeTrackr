@@ -1,11 +1,13 @@
 import React from 'react'
 import { useState } from 'react'
+import.meta.env.VITE_API_URL;
+
 import axios from 'axios';
 import { useEffect } from 'react';
 const ProtectedRoute = ({children}) => {
   const [isAuth,setAuth] = useState(null);
   useEffect(()=>{
-    axios.get("http://localhost:3000/api/protect-route",{withCredentials:true})
+    axios.get(`${import.meta.env.VITE_API_URL}/api/protect-route`,{withCredentials:true})
     .then((res)=>setAuth(true))
     .catch(()=>setAuth(false));
   },[]);
