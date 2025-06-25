@@ -50,7 +50,7 @@ const Login = () => {
                     placeholder='Enter the password'
                     required
                 />
-                <button type='submit' className='bg-black text-white rounded py-2 hover:bg-white hover:text-black'>
+                <button type='submit' className='bg-black cursor-pointer text-white rounded py-2 hover:bg-white hover:text-black'>
                     Login
                 </button>
 

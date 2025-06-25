@@ -105,7 +105,7 @@ const Signup = () => {
                     placeholder='Enter the username of X(Twitter)'
                     required
                 />
-                <button type='submit' className='bg-black text-white rounded py-2 hover:bg-white hover:text-black'>
+                <button type='submit' className='bg-black cursor-pointer text-white rounded py-2 hover:bg-white hover:text-black'>
                     Register
                 </button>
             </form>
