@@ -11,10 +11,13 @@ import reviewRoutes from "./routes/reviewRoutes.js";
 
 
 const app = express();
+app.use(express.json());s
+
 app.use(cors({
-  origin: 'http://localhost:5173',
+  origin: ["http://localhost:5173", "https://codetrackerr.onrender.com"],
   credentials: true,
 }));
+
 app.use(cookieParser());
 app.use(express.urlencoded({ extended: true })); // parses URL-encoded data
 
