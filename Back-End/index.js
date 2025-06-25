@@ -12,6 +12,12 @@ import reviewRoutes from "./routes/reviewRoutes.js";
 
 const app = express();
 app.use(express.json());
+app.use(express.static(path.join(__dirname, 'dist'))); // your frontend dist path
+
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'dist', 'index.html'));
+});
+
 
 app.use(cors({
   origin: ["http://localhost:5173", "https://codetrackerr.onrender.com"],
