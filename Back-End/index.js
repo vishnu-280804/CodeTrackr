@@ -33,7 +33,7 @@ app.get('/*any', (req, res) => {
 app.use(cookieParser());
 app.use(express.urlencoded({ extended: true })); // parses URL-encoded data
 
-a//pp.use(express.json());
+///pp.use(express.json());
 app.use("/l",leetRoutes);
 app.use("/api",authRoutes);
 app.get("/api/protect-route", verifyToken, (req, res) => {
