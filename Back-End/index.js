@@ -4,7 +4,9 @@ import authRoutes from "./routes/authRoutes.js"
 import leetRoutes from "./routes/leetRoutes.js"
 import axios from "axios";
 import cors from "cors"
-import path from "path";
+import path from 'path';
+import { fileURLToPath } from 'url';
+
 import cookieParser from "cookie-parser";
 import userRoutes from "./routes/userRoutes.js";
 import verifyToken from "./middlewares/auth.js";
@@ -12,6 +14,8 @@ import reviewRoutes from "./routes/reviewRoutes.js";
 
 
 const app = express();
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 app.use(express.json());
 app.use(express.static(path.join(__dirname, 'dist'))); // your frontend dist path
 
