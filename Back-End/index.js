@@ -19,7 +19,7 @@ app.use(cors({
 }));
 app.use(express.json());
 
-const __filename = fileURLToPath(import.meta.url);
+const __filename = fileURgitLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 app.use(express.static(path.join(__dirname, "../Front-End/dist")));
@@ -34,7 +34,6 @@ app.use(cookieParser());
 app.use(express.urlencoded({ extended: true })); // parses URL-encoded data
 
 ///pp.use(express.json());
-app.use("/l",leetRoutes);
 app.use("/api",authRoutes);
 app.get("/api/protect-route", verifyToken, (req, res) => {
   return res.json({ isLoggedin: true, user: req.user });
