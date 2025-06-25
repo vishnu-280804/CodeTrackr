@@ -2,7 +2,9 @@ import { createPartFromUri, GoogleGenAI } from "@google/genai";
 import express from "express";
 import multer from "multer";
 import fs from "fs/promises";
-const ai = new GoogleGenAI({ apiKey: "AIzaSyAUACziqIKPGHQz95VjfwbSAwn1WnogOLg" });
+import dotenv from "dotenv";
+dotenv.config();
+const ai = new GoogleGenAI({ apiKey: process.env.apiKey  });
 
 const router = express.Router();
 const upload = multer({dest:"uploads/"})
