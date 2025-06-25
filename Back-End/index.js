@@ -4,6 +4,7 @@ import authRoutes from "./routes/authRoutes.js"
 import leetRoutes from "./routes/leetRoutes.js"
 import axios from "axios";
 import cors from "cors"
+import path from "path";
 import cookieParser from "cookie-parser";
 import userRoutes from "./routes/userRoutes.js";
 import verifyToken from "./middlewares/auth.js";
