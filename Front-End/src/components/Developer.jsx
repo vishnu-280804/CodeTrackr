@@ -42,9 +42,7 @@ const Developer = () => {
     const fetchContributions = async () => {
       if (!githubUsername) return;
       try {
-        const res = await axios.get(
-          `https://github-contributions-api.jogruber.de/v4/${githubUsername}`
-        );
+        const res = await axios.get(`${import.meta.env.VITE_API_URL}/github/${githubUsername}`);
         setContributions(res.data.contributions || []);
       } catch (error) {
         console.error('Error fetching GitHub contributions:', error);
@@ -52,16 +50,17 @@ const Developer = () => {
     };
     fetchContributions();
   }, [githubUsername]);
+  //axios.get(`${import.meta.env.VITE_API_URL}/github/${githubUsername}`)
+
 
   // Fetch LeetCode submissions
   useEffect(() => {
     const fetchSubmissions = async () => {
       if (!leetcodeUsername) return;
       try {
-        const res = await axios.get(
-          // Note: ensure your CORS proxy or server supports this; consider your own backend endpoint for reliability
-          `${import.meta.env.VITE_API_URL}/l/leetcode/${leetcodeUsername}`
-        );
+        const res = await axios.get(`${import.meta.env.VITE_API_URL}/lc/${leetcodeUsername}`);
+
+
         const problems = res.data.submitStats?.acSubmissionNum || [];
         const updated = { Easy: 0, Medium: 0, Hard: 0 };
         let total = 0;
