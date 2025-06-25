@@ -13,6 +13,11 @@ import reviewRoutes from "./routes/reviewRoutes.js";
 
 
 const app = express();
+app.use(cors({
+  origin: "https://codetrackerr.onrender.com",
+  credentials: true,
+}));
+
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 app.use(express.json());
@@ -24,10 +29,6 @@ app.get('/*any', (req, res) => {
 
 
 
-app.use(cors({
-  origin: "https://codetrackerr.onrender.com",
-  credentials: true,
-}));
 
 app.use(cookieParser());
 app.use(express.urlencoded({ extended: true })); // parses URL-encoded data
