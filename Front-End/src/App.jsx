@@ -4,8 +4,7 @@ import Home from './components/Home.jsx';
 import FallBack from './pages/FallBack.jsx';
 import { motion, useScroll } from "framer-motion";
 import { useRef } from "react"
-import.meta.env.VITE_API_URL
-;
+import.meta.env.VITE_API_URL;
 
 import Signup from './components/Signup.jsx';
 import Navigator from './pages/Navigator.jsx';
@@ -19,10 +18,7 @@ const App = () => {
     <Router>
       <Toaster position="top-center" reverseOrder={false} />
 
-      <motion.div
-        style={{ scaleX: scrollYProgress }}
-        className="fixed top-0 left-0 right-0 h-1 bg-purple-500 origin-left z-50"
-      />
+      
       <Navigator />
       <Routes>
         <Route path='/' element={<Home />} />
