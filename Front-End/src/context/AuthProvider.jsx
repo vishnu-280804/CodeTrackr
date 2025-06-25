@@ -23,7 +23,7 @@ useEffect(() => {
 
   const logout = async ()=>{
     try {
-      const res = await axios.post("http://localhost:3000/api/logout",{},{withCredentials:true});
+      const res = await axios.post(`${import.meta.env.VITE_API_URL}/api/logout`,{},{withCredentials:true});
       setLoggedin(false);
       console.log(res);
 
