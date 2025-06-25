@@ -52,3 +52,6 @@ app.get("/lc/:lcUsername",async (req,res)=>{
     }
 })
 mongoose.connect("mongodb+srv://vmusix01:DJGDlcor1PfyFmFA@devpro.kv2bcjm.mongodb.net/?retryWrites=true&w=majority&appName=devpro");
+app.listen(3000,()=>{
+  console.log("....");
+});
